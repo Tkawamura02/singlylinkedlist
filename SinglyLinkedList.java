@@ -109,7 +109,7 @@ public class SinglyLinkedList<E> {
 	    	head = null;
 	    	tail = null;
 	    } else {
-	    	while (pointer.next.next != null && size>0) {
+	    	while (pointer.next.next != null) {
 	    		pointer = pointer.next;
 	    	}
 	    }
@@ -143,6 +143,7 @@ public class SinglyLinkedList<E> {
 			head=null;
 			tail=null;
 		}
+		size--;
 		SinglyLinkedList.Node<E> pointer = head;
 		SinglyLinkedList.Node<E> b = head;
 		SinglyLinkedList.Node<E> a = head;
