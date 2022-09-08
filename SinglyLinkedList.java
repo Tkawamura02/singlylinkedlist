@@ -1,3 +1,5 @@
+package singlylinkedlist;
+
 //Tiffany Kawamura ACO201 Edited Version 09/06/22
 //Module 2: Linked List Implementation Assignment 
 
@@ -103,12 +105,16 @@ public class SinglyLinkedList<E> {
 		
 		E answer = tail.getElement();
 	    size--;
-	    	while (pointer.next.next != null) {
+	    if (isEmpty()) {
+	    	head = null;
+	    	tail = null;
+	    } else {
+	    	while (pointer.next.next != null && size>0) {
 	    		pointer = pointer.next;
 	    	}
-	    	//CHECK THIS PART
-	    	pointer.next.next = null;
-	    	tail.setNext(pointer);
+	    }
+		pointer.next = null;
+		tail = pointer;
 	    return answer;
 	}
 
@@ -132,12 +138,22 @@ public class SinglyLinkedList<E> {
 //setup and added a delete method
 //remove nth element from the list (including n = 0)
 //if n>= length() do not delete element-> no error or exception
-	void delete(int n) {	
+	void delete(int n) {
+		if (isEmpty()) {
+			head=null;
+			tail=null;
+		}
 		SinglyLinkedList.Node<E> pointer = head;
-		if (length() <=n) {
-			for (int i = 0; i<n; i++) {
-				pointer = pointer.next;
+		SinglyLinkedList.Node<E> b = head;
+		SinglyLinkedList.Node<E> a = head;
+		if (n>=length()) {
+		} else {
+			for (int i=0; i<n-1; i++) {
+				b = pointer;
+				pointer=pointer.next;
 			}
+			a = pointer.next;
+			b.setNext(a);
 			pointer = null;
 		}
 	}
@@ -161,8 +177,7 @@ public class SinglyLinkedList<E> {
 			before.setNext(newest);
 			newest.setNext(after);
 		}
-		//add something that updates the last node as tail
-		
+		tail = newest;
 	}
 	
 	public String toString() {

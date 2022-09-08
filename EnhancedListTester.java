@@ -1,3 +1,5 @@
+package singlylinkedlist;
+
 public class EnhancedListTester {
 
 	public static void main(String[] args) {
@@ -65,6 +67,6 @@ public class EnhancedListTester {
 		l.delete(0);
 		System.out.println(l);
 		
-		System.out.println(l.get(2)); //added this to test the .get(int n) method
+		System.out.println("The second element is: " + l.get(2)); //added this to test the .get(int n) method
 	}
 }
