@@ -148,16 +148,15 @@ public class SinglyLinkedList<E> {
 		} else if (n==length()) {
 			removeLast();
 		} else {
-			SinglyLinkedList.Node<E> before = head;
-			SinglyLinkedList.Node<E> current = head;
+			SinglyLinkedList.Node<E> pointer = head;
 			SinglyLinkedList.Node<E> after = head;
 			size--;
 			for (int i = 0; i<n-2; i++) {
-				current = current.next;
+				pointer = pointer.next;
 			}
-			after = current.next.next;
-			current.next = null;
-			current.setNext(after);
+			after = pointer.next.next;
+			pointer.next = null;
+			pointer.setNext(after);
 		}
 	}
 
