@@ -143,19 +143,21 @@ public class SinglyLinkedList<E> {
 			head=null;
 			tail=null;
 		}
-		size--;
-		SinglyLinkedList.Node<E> pointer = head;
-		SinglyLinkedList.Node<E> b = head;
-		SinglyLinkedList.Node<E> a = head;
-		if (n>=length()) {
+		if (n==0) {
+			removeFirst();
+		} else if (n==length()) {
+			removeLast();
 		} else {
-			for (int i=0; i<n-1; i++) {
-				b = pointer;
-				pointer=pointer.next;
+			SinglyLinkedList.Node<E> before = head;
+			SinglyLinkedList.Node<E> current = head;
+			SinglyLinkedList.Node<E> after = head;
+			size--;
+			for (int i = 0; i<n-2; i++) {
+				current = current.next;
 			}
-			a = pointer.next;
-			b.setNext(a);
-			pointer = null;
+			after = current.next.next;
+			current.next = null;
+			current.setNext(after);
 		}
 	}
 

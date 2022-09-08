@@ -66,7 +66,5 @@ public class EnhancedListTester {
 
 		l.delete(0);
 		System.out.println(l);
-		
-		System.out.println("The second element is: " + l.get(2)); //added this to test the .get(int n) method
 	}
 }
