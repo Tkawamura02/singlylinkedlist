@@ -1,4 +1,3 @@
-package singlylinkedlist;
 
 public class EnhancedListTester {
 

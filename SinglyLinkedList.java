@@ -1,4 +1,3 @@
-package singlylinkedlist;
 
 //Tiffany Kawamura ACO201 Edited Version 09/06/22
 //Module 2: Linked List Implementation Assignment 
