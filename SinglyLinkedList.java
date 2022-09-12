@@ -145,7 +145,7 @@ public class SinglyLinkedList<E> {
 		}
 		if (n==0) {
 			removeFirst();
-		} else if (n==length()) {
+		} else if (n==length()-1) {
 			removeLast();
 		} else {
 			SinglyLinkedList.Node<E> pointer = head;
@@ -163,23 +163,23 @@ public class SinglyLinkedList<E> {
 //setup and added a insertAfter method
 //insert element e after nth element of the list
 //if n>=length() do not insert element -> no error or exception
-	void insertAfter(int n, E e) {
-		Node<E> newest = new Node<E>(e, null);
+	public void insertAfter(int n, E e) {
 		SinglyLinkedList.Node<E> before = head;
 		SinglyLinkedList.Node<E> after = head;
-		size++;
-		if (isEmpty()) {
-			head = newest;
-		} 
-		if (n>=length()){} else {
-			for (int i = 0; i<n-1; i++) {
+		if (n >= length()) {
+			return;
+		} else if (n==length()-1) {
+			addLast(e);
+		} else {
+			for (int i=0; i<n; i++) {
 				before = before.next;
+				after = before.next;
 			}
-			after = before.next;
+			Node<E> newest = new Node<E>(e, after);
 			before.setNext(newest);
-			newest.setNext(after);
+			//tail = newest;
+			size++;
 		}
-		tail = newest;
 	}
 	
 	public String toString() {

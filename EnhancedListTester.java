@@ -52,19 +52,19 @@ public class EnhancedListTester {
 		l.addFirst("4");
 		System.out.println(l);
 
-		l.delete(0);
+		l.delete(0); //removes 4: [5,1,3,2]
 		System.out.println(l);
 
-		l.delete(3);
+		l.delete(3); //removes 2: [5,1,3]
 		System.out.println(l);
 
-		l.delete(1);
+		l.delete(1); //removes 1: [5,3]
 		System.out.println(l);
 
-		l.delete(0);
+		l.delete(0); //removes 5: [3]
 		System.out.println(l);
 
-		l.delete(0);
+		l.delete(0); //removes 3: []
 		System.out.println(l);
 	}
 }
